@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <div ng-app="myShoppingList" ng-controller="myCtrl">
+      <ul>
+        <li ng-repeat="x in products">
+          <span ng-click="editItem($index)">{{x}}</span> <span ng-click="removeItem($index)">&times;</span>
+          <form novalidate ng-show='formShow.x' class="form">
+            <label>Edit: <input type="text" ng-model="edit" /></label><br />
+            <input type="submit" ng-click="update($index)" value="Save" />
+          </form>
+        </li>
+      </ul>
+      <input ng-model="addMe">
+      <button ng-click="addItem()">Add</button>
+    </div>
+
+  </body>
+</html>
